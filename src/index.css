@@ -50,7 +50,7 @@ code {
   outline: 0;
   box-shadow: none;
 }
-.px-4 {
+.px {
   padding-right: 1.5rem !important;
-  /* padding-left: 1.5rem!important; */
+  /* padding-left: 1.5rem !important; */
 }
