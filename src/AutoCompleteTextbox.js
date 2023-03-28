@@ -11,7 +11,7 @@ function AutoCompleteTextbox() {
   useEffect(() => {
     const loadName = async () => {
       const response = await axios.get(
-        `http://62.252.239.190:9020/v1/agents/s`
+        `https://jsonplaceholder.typicode.com/comments`
       );
       console.log(response.data);
       setAgent(response.data);
