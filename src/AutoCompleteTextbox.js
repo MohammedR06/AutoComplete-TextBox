@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import axios from "axios";
+import icon from "./icon-agent.png";
 
 function AutoCompleteTextbox() {
-  const [agent, setAgent] = useState([]);
+  // const [search, setSearch] = useState("");
+  const [err, setErr] = useState(false);
+  // const [agent, setAgent] = useState([]);
   // const [nameMatch, setNameMatch] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [text, setText] = useState("");
@@ -18,56 +21,64 @@ function AutoCompleteTextbox() {
     };
     loadName();
   }, [text]);
-  //   console.log(agent);
 
-  // const onTextBox = (nameMatch) => {
-  //   let matches = [];
-  //   if (nameMatch.length > 0) {
-  //     matches = agent.filter((user) => {
-  //       const regex = new RegExp(`${nameMatch}`, "gi");
-  //       return user.name.match(regex);
-  //     });
-  //   }
-  //   console.log("matches", matches);
-  //   setSuggestion(matches);
-  //   setNameMatch(nameMatch);
-  // };
   function onTextBox2(value) {
     setText(value);
   }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (text.length == 0) {
+      setErr(true);
+    }
+  };
   return (
     <>
       <div className="conatiner pt-2" id="rcorners2">
         <div className="wrap">
-          <h3 style={{ color: "#223461" }}>
-            <i className="fa-solid fa-user" style={{ margin: "0 15px" }}></i>
-            Agent Details
-          </h3>
-          <div className="search">
-            <input
-              className="form-control mx-5 "
-              id="inputName"
-              type="text"
-              placeholder="Search Agent"
-              aria-label="default input example"
-              value={text}
-              onChange={(e) => {
-                onTextBox2(e.target.value);
-              }}
-              required
-            />
+          <div className="d-flex mx-5 ">
+            <h4 className="mt-3" style={{ color: "#223461" }}>
+              <img className="me-2" src={icon} alt="" />
+              Agent Details
+            </h4>
+          </div>
 
+          <div className="search mt-2">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Search Agent"
+                value={text}
+                onChange={(e) => {
+                  onTextBox2(e.target.value);
+                }}
+              />
+              {err && text.length <= 0 ? (
+                <span className="err">Select Agent</span>
+              ) : (
+                ""
+              )}
+            </form>
             {suggestion &&
               suggestion.map((suggestion, i) => {
                 return (
-                  <ul key={i} id="myUL" className="mx-5 px">
-                    <li>
-                      <a style={{ fontSize: "14px" }}>{suggestion.name}</a>
-                    </li>
-                  </ul>
+                  <div className="div">
+                    <ul
+                      key={i}
+                      id="myUL"
+                      className="mx-5 px ul"
+                      unselectable="on"
+                    >
+                      <li>{suggestion.name}</li>
+                    </ul>
+                  </div>
                 );
               })}
           </div>
+        </div>
+        <div className="pt-4 ag">
+          <span>
+            <a href="">Enter Agent Manually</a>
+          </span>
         </div>
       </div>
     </>
