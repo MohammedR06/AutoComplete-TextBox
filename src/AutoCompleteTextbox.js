@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./index.css";
 import axios from "axios";
 import icon from "./icon-agent.png";
+import { Link } from "react-router-dom";
+import EnterAgent from "./Manually/EnterAgent";
 
 function AutoCompleteTextbox() {
-  // const [search, setSearch] = useState("");
   const [err, setErr] = useState(false);
-  // const [agent, setAgent] = useState([]);
-  // const [nameMatch, setNameMatch] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [text, setText] = useState("");
+  const [showText, setShowText] = useState(true);
   useEffect(() => {
     const loadName = async () => {
       const response = await axios.get(
@@ -27,10 +27,12 @@ function AutoCompleteTextbox() {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.length == 0) {
+    if (text.length === 0) {
       setErr(true);
     }
   };
+  const onClick = () => setShowText(!showText);
+
   return (
     <>
       <div className="conatiner pt-2" id="rcorners2">
@@ -45,6 +47,7 @@ function AutoCompleteTextbox() {
           <div className="search mt-2">
             <form onSubmit={handleSubmit}>
               <input
+                className="input"
                 type="text"
                 placeholder="Search Agent"
                 value={text}
@@ -61,13 +64,8 @@ function AutoCompleteTextbox() {
             {suggestion &&
               suggestion.map((suggestion, i) => {
                 return (
-                  <div className="div">
-                    <ul
-                      key={i}
-                      id="myUL"
-                      className="mx-5 px ul"
-                      unselectable="on"
-                    >
+                  <div className="div" key={i}>
+                    <ul id="myUL" className="mx-5 px ul" unselectable="on">
                       <li>{suggestion.name}</li>
                     </ul>
                   </div>
@@ -76,10 +74,12 @@ function AutoCompleteTextbox() {
           </div>
         </div>
         <div className="pt-4 ag">
-          <span>
-            <a href="">Enter Agent Manually</a>
+          <span className="mb-2">
+            <Link onClick={onClick}>Enter Agent Manually</Link>
           </span>
+          {showText ? <></> : <EnterAgent />}
         </div>
+        <div></div>
       </div>
     </>
   );
