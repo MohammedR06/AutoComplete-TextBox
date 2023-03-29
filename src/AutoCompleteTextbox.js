@@ -35,7 +35,7 @@ function AutoCompleteTextbox() {
 
   return (
     <>
-      <div className="conatiner pt-2" id="rcorners2">
+      <div className="conatiner pt-2 mt-2" id="rcorners2">
         <div className="wrap">
           <div className="d-flex mx-5 ">
             <h4 className="mt-3 h4" style={{ color: "#223461" }}>
