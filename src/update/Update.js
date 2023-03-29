@@ -43,7 +43,7 @@ function Update() {
   return (
     <>
       <div className="conatainer wrap1 my-3">
-        <h3 className="text-center" style={{ color: "#6c93ba" }}>
+        <h3 className="text-center mt-2" style={{ color: "#6c93ba" }}>
           Edit Agent Manually
         </h3>
         <form>
@@ -127,9 +127,8 @@ function Update() {
               />
             </div>
           </div>
-
           <button
-            className="my-2"
+            className="my-2 "
             type="button"
             onClick={sendDataToAPI}
             disabled={!validate()}
@@ -137,7 +136,7 @@ function Update() {
             Update
           </button>
         </form>
-        <div className="container mt-2 text-center">
+        <div className=" mt-2 add ">
           <Link to="/create">
             <button style={{ fontSize: "18px" }} className="my-2" type="button">
               Add Data

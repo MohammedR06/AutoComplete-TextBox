@@ -38,8 +38,8 @@ function AutoCompleteTextbox() {
       <div className="conatiner pt-2" id="rcorners2">
         <div className="wrap">
           <div className="d-flex mx-5 ">
-            <h4 className="mt-3" style={{ color: "#223461" }}>
-              <img className="me-2" src={icon} alt="" />
+            <h4 className="mt-3 h4" style={{ color: "#223461" }}>
+              <img className="me-2 img" src={icon} alt="" />
               Agent Details
             </h4>
           </div>
