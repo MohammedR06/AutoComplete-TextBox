@@ -127,12 +127,7 @@ function Update() {
               />
             </div>
           </div>
-          <button
-            className="my-2 "
-            type="button"
-            onClick={sendDataToAPI}
-            disabled={!validate()}
-          >
+          <button className="my-2 " type="button" onClick={sendDataToAPI}>
             Update
           </button>
         </form>

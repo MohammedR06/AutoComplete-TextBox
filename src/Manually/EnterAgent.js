@@ -115,12 +115,7 @@ function EnterAgent() {
             />
           </div>
         </div>
-        <button
-          className="my-2 mx-4"
-          type="button"
-          onClick={sendDataToAPI}
-          disabled={!validate()}
-        >
+        <button className="my-2 mx-4" type="button" onClick={sendDataToAPI}>
           Save
         </button>
       </form>

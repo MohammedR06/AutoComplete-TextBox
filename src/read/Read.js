@@ -11,7 +11,7 @@ function Read() {
         console.log(getData.data);
         setApiData(getData.data);
       });
-  });
+  }, []);
   const setData = (id, firstName, lastName, email, ccemail, phone, aname) => {
     localStorage.setItem("ID", id);
     localStorage.setItem("firstName", firstName);
