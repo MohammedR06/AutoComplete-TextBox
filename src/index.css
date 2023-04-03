@@ -113,7 +113,10 @@ span a {
 .ag {
   margin-left: 45px;
 }
-
+button:disabled {
+  background-color: white;
+  color: black;
+}
 @media (max-width: 767px) {
   #rcorners2 {
     border-radius: 19px;

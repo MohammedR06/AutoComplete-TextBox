@@ -37,8 +37,8 @@ function Read() {
   };
   return (
     <>
-      <div class="table-responsive-sm">
-        <table class="table table-bordered">
+      <div className="table-responsive-sm">
+        <table className="table table-bordered">
           <thead>
             <tr>
               <th scope="col">First Name</th>

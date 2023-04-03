@@ -13,10 +13,6 @@ function EnterAgent() {
   const [phone, setPhone] = useState("");
   const [aname, setAName] = useState("");
 
-  const validate = () => {
-    return firstName.length & lastName.length & aname.length;
-  };
-
   const sendDataToAPI = () => {
     axios
       .post("https://64213b9a86992901b2ae3c66.mockapi.io/crudcrud", {
@@ -115,7 +111,14 @@ function EnterAgent() {
             />
           </div>
         </div>
-        <button className="my-2 mx-4" type="button" onClick={sendDataToAPI}>
+        <button
+          className="my-2 mx-4"
+          type="button"
+          disabled={
+            !firstName || !lastName || !email || !ccemail || !phone || !aname
+          }
+          onClick={sendDataToAPI}
+        >
           Save
         </button>
       </form>
