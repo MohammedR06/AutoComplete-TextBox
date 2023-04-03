@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../Manually/EnterAgent.css";
 import { useNavigate, Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function Update() {
   let navigate = useNavigate();
@@ -12,10 +13,6 @@ function Update() {
   const [phone, setPhone] = useState("");
   const [aname, setAName] = useState("");
   const [id, setId] = useState(null);
-
-  const validate = () => {
-    return firstName.length & lastName.length & aname.length;
-  };
 
   const sendDataToAPI = () => {
     axios
