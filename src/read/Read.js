@@ -54,7 +54,7 @@ function Read() {
           <tbody>
             {apiData.map((data, id) => {
               return (
-                <tr>
+                <tr key={id}>
                   <td>{data.firstName}</td>
                   <td>{data.lastName}</td>
                   <td>{data.email}</td>
