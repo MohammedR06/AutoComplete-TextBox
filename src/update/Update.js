@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../Manually/EnterAgent.css";
 import { useNavigate, Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
 
 function Update() {
   let navigate = useNavigate();

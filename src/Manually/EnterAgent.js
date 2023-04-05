@@ -13,7 +13,8 @@ function EnterAgent() {
   const [phone, setPhone] = useState("");
   const [aname, setAName] = useState("");
 
-  const sendDataToAPI = () => {
+  const sendDataToAPI = (e) => {
+    e.preventDefault();
     axios
       .post("https://64213b9a86992901b2ae3c66.mockapi.io/crudcrud", {
         firstName,
@@ -30,7 +31,7 @@ function EnterAgent() {
 
   return (
     <div className="conatainer my-3">
-      <form>
+      <form onSubmit={sendDataToAPI}>
         <div className="row">
           <div className="col-lg-6 my-3">
             <input
@@ -113,11 +114,10 @@ function EnterAgent() {
         </div>
         <button
           className="my-2 mx-4"
-          type="button"
+          type="submit"
           disabled={
             !firstName || !lastName || !email || !ccemail || !phone || !aname
           }
-          onClick={sendDataToAPI}
         >
           Save
         </button>
